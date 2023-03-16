@@ -27,19 +27,21 @@ const Console = () => {
   }
 
   return (
-    <section className="console">
-      <MapConsoleOutput consoleOutput={consoleOutput} onResponseDone={handleResponseDone} />
-      <div className="input-prompt">
-        {pending ? <PendingPrompt /> : <Prompt />}
-        <input
-          type="text"
-          ref={inputTextRef}
-          onChange={({ target }) => setInputValue(target.value) }
-          value={inputValue}
-          onKeyDown={({ key }) => onEnter(inputValue, key, () => { setPending(true); setInputValue(''); })}
-        />
-      </div>
-    </section>
+    <div className="container">
+      <section className="console">
+        <MapConsoleOutput consoleOutput={consoleOutput} onResponseDone={handleResponseDone} />
+        <div className="input-prompt">
+          {pending ? <PendingPrompt /> : <Prompt />}
+          <input
+            type="text"
+            ref={inputTextRef}
+            onChange={({ target }) => setInputValue(target.value) }
+            value={inputValue}
+            onKeyDown={({ key }) => onEnter(inputValue, key, () => { setPending(true); setInputValue(''); })}
+          />
+        </div>
+      </section>
+    </div>
   );
 };
 

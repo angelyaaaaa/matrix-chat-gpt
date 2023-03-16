@@ -1,7 +1,8 @@
 import { useEffect, useState, useCallback } from 'react';
 import './App.css';
-import MatrixRain from './MatrixRain';
-import Console from './Console';
+import MatrixRain from './MatrixRainScene/MatrixRain';
+import Pills from './PillsScene/Pills';
+import Console from './ConsoleScene/Console';
 
 const animationTime = 8000;
 
@@ -39,8 +40,9 @@ function App() {
   return (
     <div>
       {showRain && <MatrixRain /> }
-      {showPillsPic  && <div onClick={handleShowConsole} style={{ transition: 'all 1s', opacity: pillsPicOpacity }}><img src="./the-matrix-red-or-blue-pill_original.jpeg" alt="" /></div>}
-      {showConsole && <div className="container"><Console /></div>}
+      {/* {showPillsPic  && <div onClick={handleShowConsole} style={{ transition: 'all 1s', opacity: pillsPicOpacity }}><img src="./the-matrix-red-or-blue-pill_original.jpeg" alt="" /></div>} */}
+      {showPillsPic && <Pills onShowConsole={handleShowConsole} opacity={pillsPicOpacity} />}
+      {showConsole && <Console />}
     </div>
   )
 }
